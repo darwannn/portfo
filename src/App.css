@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    line-height: 1.3;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+
+  .inset-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-}
+
+
+  .background-blue {
+    background-color:#E6F2FE;
+  }
+  .text-blue {
+    color:#2B2B4F;
+  }
+  .button-blue {
+    background-color:#246BE8;
+    color: #ffffff;
+  }
+  .icon-blue {
+    color:#246BE8;
+  }
+  .contact input:focus,  .contact textarea:focus  {
+    border:solid 1px#246BE8;
+  }
+
+  .box-shadow {
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0,.2);
+  }
