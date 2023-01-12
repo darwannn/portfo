@@ -1,11 +1,57 @@
-import React from 'react'
+import axios from 'axios';
+import React, {useState} from 'react'
 import { FaPhone,FaFacebookMessenger,FaGithub,FaEnvelope } from "react-icons/fa";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Contact() {
+
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+const [subject, setSubject] = useState("");
+const [message, setMessage] = useState("");
+const [loading, setLoading] = useState(false);
+
+const submitHandler = async (e) => {
+  e.preventDefault();
+  console.log("click");
+
+  if( !name || !email || !subject ||!message  ) {
+    console.log("All fields are ewquired");
+    return toast.error("All fields are ewquired")
+  }
+  try {
+    setLoading(true);
+    const { data } = await axios.post(`/api/email`, {
+      name,
+      email,
+      subject,
+      message,
+    });
+    setLoading(false);
+    toast.success(data.message);
+  } catch (err) {
+    setLoading(false);
+    toast.error(
+      err.response && err.response.data.message
+        ? err.response.data.message
+        : err.message
+    );
+    console.log(
+      err.response && err.response.data.message
+        ? err.response.data.message
+        : err.message
+    );
+  }
+}
+
   return (
-    <div className="contact flex justify-center relative background-blue overflow-hidden">
+    <div id="contact" className="contact flex justify-center relative background-blue overflow-hidden">
  <div className="absolute font-bold leading-tight text-blue bottom-0 z-0" id="text" style={{fontSize: "24rem",marginBottom:"-100px"}}>Contact</div>
     <div className="relative max-w-screen-md mx-5 my-24 p-10 bg-white rounded-xl z-10">
-
+    <ToastContainer position="bottom-right"  limit={1} />
+  {/*   <ToastContainer position="bottom-right"  progressClassName="toastProgress"
+  bodyClassName="toastBody" limit={1} /> */}
       <p className="text-center w-1/2 m-auto leading-tight mt-3 mb-10">
         I’m open to new projects,<br/>
         feel free to send me a message.
@@ -13,7 +59,7 @@ function Contact() {
 
 
 
-      <form className="w-full">
+      <form className="w-full" onSubmit={submitHandler}>
 
         <div className="flex flex-wrap">
 
@@ -23,7 +69,7 @@ function Contact() {
             </label>
             <input type="text"
               className="w-full px-3 py-2 border-blue bg-gray-100 text-black border border-gray-100 rounded  focus:outline-none  "
-              id="form-name" placeholder="Jane"/>
+              id="form-name" placeholder="Jane" onChange={(e) => {setName(e.target.value)}}/>
           </div>
 
 
@@ -33,7 +79,7 @@ function Contact() {
             </label>
             <input type="email"
               className="w-full px-3 py-2 bg-gray-100 text-black border border-gray-100 rounded  focus:outline-none  "
-              id="form-email" placeholder="********@*****.**"/>
+              id="form-email" placeholder="********@*****.**" onChange={(e) => {setEmail(e.target.value)}}/>
           </div>
 
 
@@ -45,7 +91,7 @@ function Contact() {
           </label>
           <input type="text"
             className="w-full px-3 py-2 bg-gray-100 text-black border border-gray-100 rounded  focus:outline-none  "
-            id="form-subject" placeholder="Doe"/>
+            id="form-subject" placeholder="Doe" onChange={(e) => {setSubject(e.target.value)}}/>
         </div>
 
 
@@ -56,14 +102,14 @@ function Contact() {
           </label>
           <textarea rows="8"
             className=" w-full px-3 py-2 bg-gray-100 text-black border border-gray-100 rounded  focus:outline-none  "
-            id="form-message" placeholder="Doe">
+            id="form-message" placeholder="Doe" onChange={(e) => {setMessage(e.target.value)}}>
 
         </textarea>
         </div>
 
 
-        <button className="w-full button-blue text-white font-bold px-4 py-2 rounded">
-          Send Message
+        <button disabled={loading} type="submit" className="w-full button-blue text-white font-bold px-4 py-2 rounded">
+          {loading ? "Sending" : "Submit"}
         </button>
 
 
@@ -84,7 +130,7 @@ function Contact() {
           <div className="relative">
           <div className='relative z-10'>
             <div className="">Messenger</div>
-            <a href="https://www.messenger.com/darwannn">
+            <a href="https://www.messenger.com/darwannn" target="_blank">
             <div className="icon-blue text-xl">/darwannn</div>
             </a>
           </div>
@@ -97,7 +143,7 @@ function Contact() {
           <div className="relative">
           <div className='relative z-10'>
             <div className="">Gmail</div>
-            <a href="mailto:darwinsanluis.ramos14@gmail.com">
+            <a href="mailto:darwinsanluis.ramos14@gmail.com" >
             <div className="icon-blue text-xl">darwinsanluis.ramos14</div>
             </a>
           </div>

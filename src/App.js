@@ -1,7 +1,6 @@
 
 import './App.css';
 
-import Banner from './components/Banner';
 
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -10,6 +9,7 @@ import Projects from './components/Projects';
 
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
 
 
 function App() {
@@ -25,10 +25,10 @@ function App() {
 
        <Navbar/>
        <Home/>
-       <Banner text="About"/>
+  
        <About/>
 
-       <Banner text="Project"/>
+      
  
          <Projects/>
 

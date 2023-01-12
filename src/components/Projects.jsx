@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Banner from './Banner';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -24,7 +25,7 @@ function Projects({cardImage, title, description, stack, webLink}) {
   const resistorCalculatorStack = ["Vanilla JS"];
   const snackwiseStack = ["Bootstrap", "Vanilla JS", "PHP", "Mysql" ];
   const slvisualsStack = ["Vanilla JS", "PHP","Mysql" ];
-  const portfolioStack = ["React"];
+  const portfolioStack = ["Tailwind","React"];
 
 
   const [swiperRef, setSwiperRef] = useState(null);
@@ -32,7 +33,8 @@ function Projects({cardImage, title, description, stack, webLink}) {
 
 
   return (
-   
+   <div id="projects">
+    <Banner text="Project"/>
       <div className="-mt-16">
         <Swiper
           onSwiper={setSwiperRef}
@@ -61,27 +63,23 @@ function Projects({cardImage, title, description, stack, webLink}) {
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
-           <SwiperSlide> <Card cardImage={aralinkImage} title="Aralink" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat." stack={aralinkStack} webLink="#"/></SwiperSlide>
-        <SwiperSlide> <Card cardImage={aralinkImage} title="Aralink" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis
-          consequat." stack={aralinkStack} webLink="#"/></SwiperSlide>
-        <SwiperSlide> <Card cardImage={aralinkImage} title="Aralink" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat." stack={aralinkStack} webLink="#"/></SwiperSlide>
-        <SwiperSlide> <Card cardImage={aralinkImage} title="Aralink" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat." stack={aralinkStack} webLink="#"/></SwiperSlide>
-        <SwiperSlide> <Card cardImage={aralinkImage} title="Aralink" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat." stack={aralinkStack} webLink="#"/></SwiperSlide>
+           <SwiperSlide> <Card cardImage={aralinkImage} title="Snackwise" description="Web-based online ordering system for SnackWise." stack={snackwiseStack} webLink="#"/></SwiperSlide>
+        
+        <SwiperSlide> <Card cardImage={aralinkImage} title="Aralink" description="is a website where you can compile the video recordings of your classes through embed links." stack={aralinkStack} webLink="#"/></SwiperSlide>
+     
+        <SwiperSlide> <Card cardImage={aralinkImage} title="Apex Legens Map Tracker" description="Apex Legends themed map rotation tracker." stack={apexMapTrackerStack} webLink="#"/></SwiperSlide>
+        
+        <SwiperSlide> <Card cardImage={aralinkImage} title="Resistor Calculator" description="Tool for reading resistor color code values for a 4 band resistor, 5 band resistor, or 6 band resistor." stack={resistorCalculatorStack} webLink="#"/></SwiperSlide>
+        
+        <SwiperSlide> <Card cardImage={aralinkImage} title="Pasahelp" description="Mega Manila Jeepney Fare Calculator." stack={pasahelpStack} webLink="#"/></SwiperSlide>
+        <SwiperSlide> <Card cardImage={aralinkImage} title="SL Visuals Portfolio" description="Portfolio of Architect Christian San Luis" stack={slvisualsStack} webLink="#"/></SwiperSlide>
+        <SwiperSlide> <Card cardImage={aralinkImage} title="My Portfolio" description="My Portfolio" stack={portfolioStack} webLink="#"/></SwiperSlide>
       
         </Swiper>
   
 
       </div>
-
+      </div>
 
   )
 }
