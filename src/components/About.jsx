@@ -4,7 +4,7 @@ import meImage from './../img/me.png'
 function About() {
   return (
     <div id="about">
-         <Banner text="About" image={meImage}/>
+         <Banner text="About" /* image={meImage} *//>
   
     <div className="flex justify-center relative  -mt-16 z-10">
 

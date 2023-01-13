@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { FaPhone,FaFacebookMessenger,FaGithub,FaEnvelope } from "react-icons/fa";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { RiLoader4Line } from "react-icons/ri";
 function Contact() {
 
 const [name, setName] = useState("");
@@ -17,8 +17,8 @@ const submitHandler = async (e) => {
   console.log("click");
 
   if( !name || !email || !subject ||!message  ) {
-    console.log("All fields are ewquired");
-    return toast.error("All fields are ewquired")
+  
+    return toast.error("All fields are required.")
   }
   try {
     setLoading(true);
@@ -33,11 +33,6 @@ const submitHandler = async (e) => {
   } catch (err) {
     setLoading(false);
     toast.error(
-      err.response && err.response.data.message
-        ? err.response.data.message
-        : err.message
-    );
-    console.log(
       err.response && err.response.data.message
         ? err.response.data.message
         : err.message
@@ -69,7 +64,7 @@ const submitHandler = async (e) => {
             </label>
             <input type="text"
               className="w-full px-3 py-2 border-blue bg-gray-100 text-black border border-gray-100 rounded  focus:outline-none  "
-              id="form-name" placeholder="Jane" onChange={(e) => {setName(e.target.value)}}/>
+              id="form-name" placeholder="Name" onChange={(e) => {setName(e.target.value)}}/>
           </div>
 
 
@@ -79,37 +74,35 @@ const submitHandler = async (e) => {
             </label>
             <input type="email"
               className="w-full px-3 py-2 bg-gray-100 text-black border border-gray-100 rounded  focus:outline-none  "
-              id="form-email" placeholder="********@*****.**" onChange={(e) => {setEmail(e.target.value)}}/>
+              id="form-email" placeholder="Email Address" onChange={(e) => {setEmail(e.target.value)}}/>
           </div>
 
 
         </div>
 
         <div className="w-full mb-3">
-          <label className="font-bold " htmlFor="form-subject">
-            Last Name
+          <label className="font-bold " htmlFor="form-subject">Subject
           </label>
           <input type="text"
             className="w-full px-3 py-2 bg-gray-100 text-black border border-gray-100 rounded  focus:outline-none  "
-            id="form-subject" placeholder="Doe" onChange={(e) => {setSubject(e.target.value)}}/>
+            id="form-subject" placeholder="Subject" onChange={(e) => {setSubject(e.target.value)}}/>
         </div>
 
 
 
         <div className="w-full mb-3">
-          <label className="font-bold" htmlFor="form-message">
-            Your Message
+          <label className="font-bold" htmlFor="form-message">Message
           </label>
           <textarea rows="8"
             className=" w-full px-3 py-2 bg-gray-100 text-black border border-gray-100 rounded  focus:outline-none  "
-            id="form-message" placeholder="Doe" onChange={(e) => {setMessage(e.target.value)}}>
+            id="form-message" placeholder="Message" onChange={(e) => {setMessage(e.target.value)}}>
 
         </textarea>
         </div>
 
 
         <button disabled={loading} type="submit" className="w-full button-blue text-white font-bold px-4 py-2 rounded">
-          {loading ? "Sending" : "Submit"}
+          {loading ? <RiLoader4Line className="animate-spin font-bold"/> : "Submit"}
         </button>
 
 

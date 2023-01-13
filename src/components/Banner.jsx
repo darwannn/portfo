@@ -4,9 +4,9 @@ function Banner({text, image}) {
   const textRef = useRef(null);
 
   window.addEventListener("scroll", () => {
-    /* let value = window.scrollY;
-      textRef.style.marginLeft = value + 'px'; */
-/* textRef.current.style.background = 'red'; */
+    let value = window.scrollY;
+/*       textRef.style.paddingLeft = value + 'px'; */
+textRef.current.style.background = 'red';
 /* console.log(textRef.current.style); */
 
   });

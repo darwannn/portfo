@@ -9,6 +9,8 @@ function Card({cardImage, title, description, stack, webLink, githubLink}) {
   const handleMouseOut = () => {
     setIsHovering(false);
   };
+
+  
   /* setIsHovering(true); */
   return (
     <div className="bg-white rounded-xl box-shadow p-2" >
@@ -18,9 +20,9 @@ function Card({cardImage, title, description, stack, webLink, githubLink}) {
       <div className="">
         <div className="w-full h-full z-10 absolute rounded-lg bg-black opacity-30"></div>
         <div className="w-full h-full flex inset-center justify-center items-center text-white z-20">
-        <a href="https://www.messenger.com/darwannn">
+      
         <FaImages className="m-1 text-2xl"/>
-        </a>
+    
         <a href={githubLink} target="_blank">
         <FaGithub className="m-1 text-2xl"/>
         </a>

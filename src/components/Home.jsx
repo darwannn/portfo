@@ -2,8 +2,9 @@ import React from 'react'
 import { FaPhone,FaFacebookMessenger,FaGithub,FaEnvelope } from "react-icons/fa";
 function Home() {
   return (
-    <div id="home" className="relative h-screen  px-5 text-center lg:text-left xl:text-left" style={{background: "linear-gradient(to bottom, #E6F2FE,#ffffff)"}}>
-    <div className=" absolute inset-left-center ">
+    <div id="home" className="relative flex justify-center items-center h-screen px-5 text-center py-96 lg:py-0 xl:py-0 lg:text-left xl:text-left" style={{background: "linear-gradient(to bottom, #E6F2FE,#ffffff)"}}>
+    <div className="w-full m-0  xl:w-3/4 lg:-ml-24 lg:-mt-24 xl:-ml-24 xl:-mt-24">
+
       <div className="flex flex-col-reverse lg:flex-row xl:flex-row ">
         <div className="flex flex-row lg:flex-col xl:flex-col justify-center mt-10 lg:m-0 xl:m-0  gap-6 text-3xl">
         <a href="https://www.messenger.com/darwannn" target="_blank">
@@ -21,7 +22,7 @@ function Home() {
     
         </div>
 
-        <div className="flex-1 ml-8">
+        <div className="flex-1 lg:ml-8 xl:ml-8">
           <div className="text-3xl leading-none">&lt;Hello World/&gt;</div>
           <div className="text-8xl font-bold leading-none text-blue">DARWIN RAMOS</div>
           <div className="mt-2 mb-4 text-2xl">I'm a computer science student based in Philippines.
