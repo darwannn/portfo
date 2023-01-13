@@ -25,7 +25,7 @@ function Projects({cardImage, title, description, stack, webLink}) {
   const resistorCalculatorStack = ["Vanilla JS"];
   const snackwiseStack = ["Bootstrap", "Vanilla JS", "PHP", "Mysql" ];
   const slvisualsStack = ["Vanilla JS", "PHP","Mysql" ];
-  const portfolioStack = ["Tailwind","React"];
+  const portfolioStack = ["Tailwind","React", "Node"];
 
 
   const [swiperRef, setSwiperRef] = useState(null);
@@ -34,8 +34,8 @@ function Projects({cardImage, title, description, stack, webLink}) {
 
   return (
    <div id="projects">
-    <Banner text="Project"/>
-      <div className="-mt-16">
+    <Banner text="Project" scrollStart="500" position="1000"/>
+      <div className=" relative -mt-16 z-50">
         <Swiper
           onSwiper={setSwiperRef}
           slidesPerView={3}
@@ -72,7 +72,7 @@ function Projects({cardImage, title, description, stack, webLink}) {
         <SwiperSlide> <Card cardImage={aralinkImage} title="Resistor Calculator" description="Tool for reading resistor color code values for a 4 band resistor, 5 band resistor, or 6 band resistor." stack={resistorCalculatorStack} webLink="#"/></SwiperSlide>
         
         <SwiperSlide> <Card cardImage={aralinkImage} title="Pasahelp" description="Mega Manila Jeepney Fare Calculator." stack={pasahelpStack} webLink="#"/></SwiperSlide>
-        <SwiperSlide> <Card cardImage={aralinkImage} title="SL Visuals Portfolio" description="Portfolio of Architect Christian San Luis" stack={slvisualsStack} webLink="#"/></SwiperSlide>
+        <SwiperSlide> <Card cardImage={aralinkImage} title="SL Visuals" description="Portfolio of Architect Christian San Luis" stack={slvisualsStack} webLink="#"/></SwiperSlide>
         <SwiperSlide> <Card cardImage={aralinkImage} title="My Portfolio" description="My Portfolio" stack={portfolioStack} webLink="#"/></SwiperSlide>
       
         </Swiper>

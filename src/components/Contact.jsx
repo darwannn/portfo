@@ -1,17 +1,20 @@
 import axios from 'axios';
-import React, {useState} from 'react'
+import React, {useState,useRef, useEffect} from 'react'
 import { FaPhone,FaFacebookMessenger,FaGithub,FaEnvelope } from "react-icons/fa";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Banner from './Banner';
+/* import { scrollPosition } from './functions.js'; */
 import { RiLoader4Line } from "react-icons/ri";
 function Contact() {
-
+  const textRef = useRef(null);
 const [name, setName] = useState("");
 const [email, setEmail] = useState("");
 const [subject, setSubject] = useState("");
 const [message, setMessage] = useState("");
 const [loading, setLoading] = useState(false);
 
+/* useEffect(() => { window.addEventListener("scroll", () => {textRef.current.style.paddingLeft = `${scrollPosition(700)}px`;});}); */
 const submitHandler = async (e) => {
   e.preventDefault();
   console.log("click");
@@ -41,9 +44,11 @@ const submitHandler = async (e) => {
 }
 
   return (
-    <div id="contact" className="contact flex justify-center relative background-blue overflow-hidden">
- <div className="absolute font-bold leading-tight text-blue bottom-0 z-0" id="text" style={{fontSize: "24rem",marginBottom:"-100px"}}>Contact</div>
-    <div className="relative max-w-screen-md mx-5 my-24 p-10 bg-white rounded-xl z-10">
+    <div id="contact">
+             <Banner text="Contact" /* image={meImage} */ scrollStart="2000" position="100"/>
+    <div className="contact flex justify-center relative background-blue overflow-hidden -mt-16 ">
+ {/* <div className="absolute font-bold leading-tight text-blue bottom-0 z-0" id="text" style={{fontSize: "24rem",marginBottom:"-100px",marginLeft:"-1000px"}} ref={textRef}>Contact</div> */}
+    <div className="relative max-w-screen-md mx-5 mb-24  p-10 bg-white rounded-xl z-10">
     <ToastContainer position="bottom-right"  limit={1} />
   {/*   <ToastContainer position="bottom-right"  progressClassName="toastProgress"
   bodyClassName="toastBody" limit={1} /> */}
@@ -158,6 +163,7 @@ const submitHandler = async (e) => {
         
 
     </div>
+  </div>
   </div>
   )
 }

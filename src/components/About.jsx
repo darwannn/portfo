@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
 import Banner from './Banner';
 import meImage from './../img/me.png'
 function About() {
+/*   const imageRef  = useRef(null);
+  useEffect(() => { window.addEventListener("scroll", () => {textRef.current.style.paddingLeft = `${scrollPosition(scrollStart)}px`;});}); */
   return (
     <div id="about">
-         <Banner text="About" /* image={meImage} *//>
+         <Banner text="About" image={meImage} scrollStart="0" position="100"/>
   
-    <div className="flex justify-center relative  -mt-16 z-10">
+    <div className="flex justify-center relative  -mt-16 z-50">
 
     <div className="w-full mb-10 mx-10 p-20 bg-white box-shadow rounded-2xl">
 

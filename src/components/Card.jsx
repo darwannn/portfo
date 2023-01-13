@@ -9,8 +9,13 @@ function Card({cardImage, title, description, stack, webLink, githubLink}) {
   const handleMouseOut = () => {
     setIsHovering(false);
   };
-
-  
+ /*  let hoverClass = "";
+  if(isHovering == true) {
+    hoverClass=`visible opacity-100`
+  } else {
+    hoverClass=`hidden opacity-0`
+  }
+   */
   /* setIsHovering(true); */
   return (
     <div className="bg-white rounded-xl box-shadow p-2" >
@@ -34,13 +39,13 @@ function Card({cardImage, title, description, stack, webLink, githubLink}) {
       </div>
       <div className="px-6 py-4 relative w-full" style={{minHeight:"250px"}}>
         <div className="font-bold text-3xl mb-1 text-blue ">{title}</div>
-        <div className="">
+        <div className="mb-5">
           {description}
         </div>
 
 
       {stack.map((text)=>{
-        return  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-5 button-blue">{text}</span>;
+        return  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-1 button-blue">{text}</span>;
       })}
        
         <a href={webLink} target="_blank" className="flex  absolute bottom-0 right-0 px-6 py-4 font-bold text-blue ">Live View<FaChevronRight className=' mt-1 ml-1'/></a>

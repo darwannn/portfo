@@ -1,22 +1,26 @@
-import React, {useRef} from 'react'
+import React, {useRef,useEffect} from 'react'
+import { scrollPosition } from './functions.js';
 
-function Banner({text, image}) {
+function Banner({text, image, scrollStart, position}) {
   const textRef = useRef(null);
+  const imageRef = useRef(null);
+  
+  useEffect(() => { 
+    window.addEventListener("scroll", () => {
+        textRef.current.style.paddingLeft = `${scrollPosition(scrollStart)}px`;
+        if(window.scrollY <= 800) {
+          imageRef.current.style.paddingBottom = `${scrollPosition(scrollStart-100)/2}px`;
 
-  window.addEventListener("scroll", () => {
-    let value = window.scrollY;
-/*       textRef.style.paddingLeft = value + 'px'; */
-textRef.current.style.background = 'red';
-/* console.log(textRef.current.style); */
-
+        }
+    });
   });
 
   return (
     <div className="relative ">
-    { image && <img src={image} alt="" className="inset-center absolute z-5 pb-44" style={{width:"600px"}}/> }
+    { image && <img src={image} alt="Darwin" ref={imageRef} className="inset-center absolute z-20" style={{width:"600px",paddingTop:"100px"}}/> }
     <div className="relative overflow-hidden h-96 background-blue" style={{height: "24rem"}}>
       
-    <div className="absolute font-bold leading-tight text-blue" ref={textRef} style={{fontSize: "24rem"}}>{text}</div>
+    <div className="absolute font-bold leading-tight text-blue uppercase z-10" ref={textRef} style={{fontSize: "24rem",  marginLeft:`"-${position}px"`}}>{text}</div>
   </div>
     </div>
   )
